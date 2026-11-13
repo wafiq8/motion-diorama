@@ -8,7 +8,7 @@ pengamatan pola kreator Motion Format, dalam tiga mode aktif: Mode A — diorama
 glossy (Seri Tubuh Manusia). Tujuannya membangun audiens. Dirancang agar render final pertama
 langsung lolos QC: timing diukur dari audio asli ke dalam satu
 timeline.json yang divalidasi mesin, teks readout tidak bisa keluar
-frame, ada gerbang still-frame yang murah, dan sesi wajib QC mandiri
+frame, ada gerbang still internal yang murah (Mode Tinggal: sesi menilai sendiri), dan sesi wajib QC mandiri
 fail-closed sebelum menyerahkan hasil.
 
 ## Keputusan terkunci (user, 12 Nov 2026; daftar mode diperbarui 13 Nov 2026)
@@ -25,7 +25,7 @@ Puppeteer/FFmpeg).
 
 - `SKILL.md` — inti (294 baris): keputusan terkunci, larangan keras,
   aturan timing/timeline.json, style lock ringkas tiga mode, aturan teks, audio,
-  alur 5 tahap dengan 2 gerbang, pipeline render cepat, QC 10 poin.
+  alur 5 tahap dengan gerbang internal (Mode Tinggal), pipeline render cepat, QC 10 poin.
 - `references/mode-a.md` — detail Mode A: gaya visual + palet + rig
   cahaya, tipografi serif, bahasa kamera & tangga zoom, tiga struktur
   narasi, penutup CTV, dan Varian A2 Peta Hidup.
@@ -58,16 +58,30 @@ Salin folder `motion-diorama` ini ke dalam repo kerja, di lokasi:
 
 ## Cara pakai (alur user)
 
-1. Siapkan: mode (A/C) + topik + sumber fakta, naskah (atau minta draf), MP3 narasi,
+1. Siapkan: mode (A/B/C) + topik + sumber fakta, naskah (atau minta draf), MP3 narasi,
    dan file musik — upload MP3 + musik ke root repo.
 2. Buka sesi baru Claude Code cloud pada repo itu, tempel isi
    `prompt-mulai-sesi-baru.txt` yang sudah dilengkapi.
-3. Setujui dua gerbang: (a) ringkasan timeline, (b) contact sheet
-   still-frame sebelum render gerak.
-4. Unduh MP4 final dari sesi.
+3. Tinggalkan sesi berjalan (Mode Tinggal bawaan): sesi memeriksa
+   timeline + still sendiri dan lanjut sampai final; berhenti
+   hanya untuk penghambat keras.
+4. Unduh MP4 final + periksa laporan (contact sheet + keputusan
+   otomatis terlampir); minta revisi bila perlu.
 
 ## Versi
 
+- v3.0 · edisi publik (13 Nov 2026) — **Mode Tinggal** menjadi bawaan
+  edisi publik: sesi tidak lagi berhenti di Gerbang 1/2 — kedua
+  gerbang dijalankan internal oleh sesi terhadap kriteria tertulis
+  yang sama (validator + penilaian contact sheet, perbaikan mandiri
+  maks. 2 percobaan per scene), keputusan mengikuti blok keputusan
+  siap pakai di prompt (atempo narasi kepanjangan maks. 1,25×, dsb),
+  dan sesi hanya berhenti untuk penghambat keras (bahan rusak,
+  transkrip mustahil, durasi tetap di luar rentang). Laporan akhir
+  wajib melampirkan contact sheet + daftar penilaian + keputusan
+  otomatis sebagai bukti. "Mode Tinggal: TIDAK" di prompt
+  mengembalikan gerbang persetujuan klasik. Edisi pribadi pembuat
+  tidak berubah (tetap v2.9, gerbang klasik).
 - v2.9 (13 Nov 2026) — user mengaktifkan Mode B (bongkar benda —
   cara kerja benda/mesin) dari status parkir: references/mode-b.md
   baru, dibangun dari bedah rice cooker + mesin jet @motionformat,

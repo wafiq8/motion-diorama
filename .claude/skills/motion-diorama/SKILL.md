@@ -1,9 +1,9 @@
 ---
 name: motion-diorama
-description: "Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya 3D dari kode untuk seri edukasi berbahasa Indonesia, dalam tiga mode aktif — Mode A: diorama 3D semi-realistis (lanskap/sejarah, termasuk varian peta hidup); Mode B: bongkar benda (cara kerja benda/mesin); Mode C: ilustrasi anatomi 3D glossy (Seri Tubuh Manusia, ikuti-satu-aliran). Dirender dengan Remotion + Three.js; BUKAN footage asli dan BUKAN slideshow gambar AI. Mengunci timeline.json sebagai sumber kebenaran timing dari audio asli, style lock per mode, teks readout overlay DOM anti-kepotong, gerbang still-frame, QC mandiri fail-closed, render cepat per-scene, dan penutup kesimpulan/callback untuk membangun audiens."
+description: "Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya 3D dari kode untuk seri edukasi berbahasa Indonesia, dalam tiga mode aktif — Mode A: diorama 3D semi-realistis (lanskap/sejarah, termasuk varian peta hidup); Mode B: bongkar benda (cara kerja benda/mesin); Mode C: ilustrasi anatomi 3D glossy (Seri Tubuh Manusia, ikuti-satu-aliran). Dirender dengan Remotion + Three.js; BUKAN footage asli dan BUKAN slideshow gambar AI. Mengunci timeline.json sebagai sumber kebenaran timing dari audio asli, style lock per mode, teks readout overlay DOM anti-kepotong, gerbang internal Mode Tinggal (sesi berjalan sendiri dari bahan sampai final; gerbang persetujuan klasik tersedia), QC mandiri fail-closed, render cepat per-scene, dan penutup kesimpulan/callback untuk membangun audiens."
 ---
 
-# Motion Diorama — Skill Produksi Video Edukasi (v2.9 · edisi publik)
+# Motion Diorama — Skill Produksi Video Edukasi (v3.0 · edisi publik)
 
 > Prinsip inti: **periksa sebelum render, bukan sesudahnya.** Semua yang
 > bisa dicek murah (timeline, still-frame, lebar teks) WAJIB lolos dulu.
@@ -49,19 +49,26 @@ description: "Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya 3D da
 - Target ritme: **1–2 video/hari**. Efisiensi adalah syarat desain —
   pakai ulang scaffold, primitif, dan komponen; jangan membangun ulang
   yang sudah ada.
-- Gerbang: TETAP DUA — Gerbang 1 (ringkasan timeline) dan Gerbang 2
-  (contact sheet still). Pelonggaran demi efisiensi BOLEH, bertahap,
-  berbasis bukti, dan hanya untuk Gerbang 2:
-  · Setelah 3 video berturut-turut lolos Gerbang 2 TANPA revisi visual
-    mayor: format ringan — 1 still per scene.
-  · Setelah 3 video lagi lolos bersih dalam format ringan: Gerbang 2
-    menjadi opsional untuk jenis scene yang sudah terbukti (still tetap
-    wajib untuk scene/jenis visual baru).
-  · Gerbang 1 TIDAK pernah dilonggarkan — murah, dan menangkap kesalahan
-    termahal (pemetaan kalimat).
-  · Setiap pelonggaran dicatat di laporan akhir; satu revisi visual
-    mayor mengembalikan format penuh; user boleh mencabut pelonggaran
-    kapan saja.
+- **Gerbang — Mode Tinggal adalah bawaan edisi publik:** sesi TIDAK
+  berhenti menunggu persetujuan user. Gerbang 1 (ringkasan timeline)
+  dan Gerbang 2 (contact sheet still) dijalankan INTERNAL: sesi
+  menilai hasil tahapnya sendiri terhadap kriteria tertulis skill
+  ini (validator PASS + daftar cek QC), memperbaiki sendiri temuan
+  (maks. 2 percobaan perbaikan per scene), lalu lanjut. Keputusan
+  mengikuti BLOK KEPUTUSAN di prompt (bawaan: narasi kepanjangan
+  dipercepat atempo sampai maks. 1,25×; fakta belum terverifikasi
+  ditandai di laporan). Pertanyaan yang tidak terjawab blok itu
+  diajukan SEKALIGUS dalam satu pesan sebelum pembangunan dimulai —
+  dilarang bertanya di tengah jalan. Sesi hanya boleh berhenti di
+  tengah untuk PENGHAMBAT KERAS: (a) bahan tidak ada atau rusak,
+  (b) transkrip mustahil dibuat, (c) narasi tetap di luar 30–60
+  detik setelah atempo maks. Bila prompt menyatakan "Mode Tinggal:
+  TIDAK", berlaku gerbang klasik — dua persetujuan user (sesudah
+  Tahap 1 dan sesudah Tahap 3) dengan tangga pelonggaran Gerbang 2
+  berbasis bukti: 3 lolos bersih berturut-turut → 1 still per scene;
+  3 lagi → opsional untuk jenis scene terbukti; Gerbang 1 tidak
+  pernah dilonggarkan; satu revisi visual mayor mengembalikan
+  format penuh; setiap pelonggaran dicatat di laporan akhir.
 
 ## Larangan keras
 
@@ -116,10 +123,16 @@ description: "Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya 3D da
    ≤ 0,3 detik.
 5. Jalankan `python3 scripts/validate_timeline.py docs/timeline.json`.
    Kalau FAIL: perbaiki timeline, ulangi. Dilarang lanjut saat FAIL.
-6. Tampilkan ringkasan timeline (jumlah kalimat, pemetaan scene, total
-   durasi) ke user dan TUNGGU persetujuan — ini Gerbang 1.
-7. `total_duration_s` harus 30–60 detik. Di luar itu: laporkan ke user
-   (narasi kepanjangan/kependekan), jangan memotong atau menambal diam-diam.
+6. Susun ringkasan timeline (jumlah kalimat, pemetaan scene, total
+   durasi) dan nilai sendiri terhadap kriteria ini — ini Gerbang 1.
+   Mode Tinggal: jangan berhenti; simpan ringkasan untuk laporan
+   akhir. Mode gerbang klasik: tampilkan ke user dan TUNGGU persetujuan.
+7. `total_duration_s` harus 30–60 detik. Di luar itu: Mode Tinggal —
+   terapkan kebijakan prompt (atempo maks. 1,25× untuk kepanjangan;
+   regangkan jeda penutup untuk kependekan) dan catat di laporan;
+   bila tetap di luar rentang, itu PENGHAMBAT KERAS: berhenti dan
+   laporkan. Mode klasik: laporkan ke user — jangan memotong atau
+   menambal diam-diam.
    Keheningan tanpa alasan dilarang; jeda payoff 0,3–1 detik di penutup
    diperbolehkan dan dihitung dalam total.
 
@@ -219,7 +232,7 @@ description: "Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya 3D da
   mengarang musik — kabari user.
 - Final dinormalisasi ke −14 LUFS, peak ≤ −1 dB.
 
-## Alur produksi (gerbang tidak boleh dilompati)
+## Alur produksi (urutan tidak boleh dilompati)
 
 - **Tahap 0 — Scaffold:** pakai scaffold proyek yang sudah ada;
   renderer, kamera rig, style lock, dan primitif TIDAK ditulis ulang.
@@ -228,14 +241,17 @@ description: "Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya 3D da
   (dependensi versi persis yang terbukti jalan), lalu perlakukan
   sebagai scaffold yang sudah ada.
 - **Tahap 1 — Timeline:** sesuai bagian Timing → validator PASS →
-  Gerbang 1 (persetujuan user).
+  Gerbang 1 (internal di Mode Tinggal; persetujuan user di mode klasik).
 - **Tahap 2 — Bangun scene** membaca timeline.json dan file referensi
   mode video ini (references/mode-a.md, references/mode-b.md, atau
   references/mode-c.md).
 - **Tahap 3 — Gerbang still:** render 3 still per scene (awal/tengah/
-  akhir scene) + contact sheet; tampilkan; TUNGGU persetujuan user.
-  (Format mengikuti tangga pelonggaran Gerbang 2 di Keputusan terkunci.)
-  Perbaiki di tahap still — jauh lebih murah daripada di video.
+  akhir scene) + contact sheet. Mode Tinggal: nilai contact sheet
+  terhadap daftar cek QC mode ini, perbaiki temuan di tahap still
+  (maks. 2 percobaan per scene), lalu lanjut — jangan menunggu user;
+  simpan contact sheet + daftar penilaian untuk laporan akhir. Mode
+  klasik: tampilkan dan TUNGGU persetujuan user. Perbaiki di tahap
+  still — jauh lebih murah daripada di video.
 - **Tahap 4 — Preview + QC mandiri:** render preview skala 0.5, jalankan
   QC di bawah atas hasil sendiri, perbaiki semua temuan (render ulang
   hanya scene yang berubah) sebelum melapor.
@@ -287,13 +303,20 @@ description: "Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya 3D da
   `docs/timeline.json`.
 - Laporan akhir WAJIB memuat: tabel kalimat ringkas, pemetaan scene,
   hasil validator + check_output, dan hasil 10 poin QC satu per satu.
+  Mode Tinggal: laporan juga WAJIB melampirkan contact sheet, daftar
+  penilaian still oleh sesi, dan daftar semua keputusan otomatis yang
+  diambil (termasuk faktor atempo bila dipakai) — inilah bukti yang
+  menjadi dasar user meminta revisi.
 - Caption Instagram: informatif, menutup dengan label seri + hashtag
   relevan.
 
 ## Batas kejujuran skill ini
 
 Skill ini meniadakan kegagalan yang bisa dicek mesin (timing, teks,
-konsistensi, spesifikasi file). Ia TIDAK menjamin selera: penilaian
-"bagus/tidak" tetap lewat Gerbang still oleh mata user. Karena itu
-gerbang tidak boleh dihapus diam-diam — pelonggarannya hanya mengikuti
-tangga berbasis bukti di Keputusan terkunci.
+konsistensi, spesifikasi file). Ia TIDAK menjamin selera. Di Mode
+Tinggal penilaian "bagus/tidak" dilakukan sesi sendiri terhadap
+kriteria tertulis, dengan bukti (contact sheet + daftar penilaian)
+dilampirkan di laporan akhir agar user bisa meminta revisi; di mode
+gerbang klasik, penilaian itu lewat mata user sebelum render final.
+Gerbang tidak dihapus — di Mode Tinggal penjaganya diganti, urutan
+cek murahnya tetap mendahului pembangunan yang mahal.

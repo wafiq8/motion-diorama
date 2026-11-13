@@ -10,9 +10,9 @@ jumlah kata.
 Skill ini adalah sistem produksi nyata yang sudah teruji
 memproduksi seri edukasi 3D berbahasa Indonesia, dan dibuka untuk
 siapa pun dengan lisensi MIT. Ia dirancang dengan satu prinsip: **periksa sebelum render,
-bukan sesudahnya** — timeline divalidasi mesin, ada dua gerbang
-persetujuan murah (ringkasan timeline, lalu still-frame), dan sesi
-wajib QC mandiri sebelum menyerahkan video final.
+bukan sesudahnya** — timeline divalidasi mesin, setiap tahap
+diperiksa terhadap kriteria tertulis sebelum tahap mahal dimulai,
+dan sesi wajib QC mandiri sebelum menyerahkan video final.
 
 ## Tiga mode video
 
@@ -46,9 +46,18 @@ Pilih satu:
 4. Buka **sesi Claude Code baru**, tempel isi
    `.claude/skills/motion-diorama/prompt-mulai-sesi-baru.txt`
    yang sudah kamu lengkapi (mode, topik, sumber, naskah).
-5. Setujui **Gerbang 1** (ringkasan timeline) dan **Gerbang 2**
-   (contact sheet still-frame) saat sesi berhenti di sana.
-6. Unduh `out/<slug>-final.mp4` dari sesi. Selesai.
+5. **Tinggalkan sesi berjalan** — edisi publik memakai **Mode
+   Tinggal**: sesi memeriksa timeline dan still-nya sendiri
+   terhadap kriteria skill, memperbaiki sendiri temuannya, dan
+   berjalan terus sampai video final tanpa menunggu persetujuanmu.
+   Ia hanya berhenti bila bahan kurang/rusak atau narasi tidak
+   bisa masuk durasi.
+6. Unduh `out/<slug>-final.mp4` dari sesi. Laporan akhirnya
+   melampirkan contact sheet, daftar penilaian sesi, dan semua
+   keputusan otomatis yang diambil (misalnya narasi dipercepat) —
+   periksa, lalu minta revisi bila ada yang kurang pas. Mau
+   menyetujui timeline & still di tengah jalan? Tulis
+   `Mode Tinggal: TIDAK` di prompt.
 
 Contoh siap coba ada di folder `contoh/` (storyboard + naskah
 Mode B tentang rice cooker).
@@ -68,15 +77,16 @@ Mode B tentang rice cooker).
 - Nama seri, palet, dan detail tiap mode ada di
   `.claude/skills/motion-diorama/references/` — Mode C membawa
   nama bawaan contoh "Seri Tubuh Manusia", ganti dengan serimu.
-- Aturan main (durasi, gerbang, gaya angka, penutup) terkunci di
+- Aturan main (durasi, Mode Tinggal, gaya angka, penutup) terkunci di
   `SKILL.md`; ubah dengan sadar bila gayamu berbeda.
 
 ## Catatan jujur
 
 Skill ini meniadakan kegagalan yang bisa dicek mesin (timing,
 teks terpotong, konsistensi gaya, spesifikasi file). Ia **tidak**
-menjamin selera — karena itu dua gerbang persetujuan adalah bagian
-dari desain, bukan gangguan. Video pertama di repo baru adalah
+menjamin selera — karena itu pemeriksaan tahapnya tidak dibuang,
+melainkan dijalankan sesi sendiri (Mode Tinggal) dengan bukti
+yang dilampirkan di laporan akhir untuk kamu nilai. Video pertama di repo baru adalah
 yang paling lambat (scaffold + model pertama dibangun); video
 berikutnya jauh lebih cepat karena semua aset dipakai ulang.
 
