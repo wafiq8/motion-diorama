@@ -246,7 +246,13 @@ description: "Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya 3D da
   mode video ini (references/mode-a.md, references/mode-b.md, atau
   references/mode-c.md).
 - **Tahap 3 — Gerbang still:** render 3 still per scene (awal/tengah/
-  akhir scene) + contact sheet. Mode Tinggal: nilai contact sheet
+  akhir scene) + contact sheet. Setiap panel contact sheet WAJIB
+  digambari garis panduan area aman (hanya di sheet — tidak pernah
+  masuk video): persegi margin aman 5% semua sisi + pita zona
+  platform ±250 px atas dan ±310 px bawah (kanvas 1080×1920; skala
+  proporsional untuk still ukuran pratinjau). Teks penting (judul,
+  readout, chip, label) dinilai terhadap garis itu; karaoke mengikuti
+  aturan zona aman bawahnya sendiri. Mode Tinggal: nilai contact sheet
   terhadap daftar cek QC mode ini, perbaiki temuan di tahap still
   (maks. 2 percobaan per scene), lalu lanjut — jangan menunggu user;
   simpan contact sheet + daftar penilaian untuk laporan akhir. Mode
@@ -276,7 +282,10 @@ description: "Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya 3D da
 1. `validate_timeline.py` PASS dan file final ter-probe: 1080×1920,
    30 fps, durasi 30–60 detik, audio ada sampai mendekati akhir.
 2. Setiap batas scene ≤ 0,3 detik dari awal kalimat pemetaannya.
-3. Tidak ada teks terpotong/keluar zona aman di contact sheet & preview.
+3. Tidak ada teks terpotong/keluar zona aman di contact sheet &
+   preview — dinilai terhadap garis panduan yang tergambar di
+   contact sheet (margin 5% + zona platform ±250/±310 px); teks
+   penting yang masuk pita platform = FAIL.
 4. Hook lengkap (teks+suara+visual) hadir di 1,5 detik pertama.
 5. Counter/readout muncul sinkron dengan kalimat angkanya. Angka hero
    3D (bila dipakai) maksimal satu, utuh di dalam frame, dan angkanya

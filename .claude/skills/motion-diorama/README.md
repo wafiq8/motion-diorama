@@ -80,7 +80,10 @@ Salin folder `motion-diorama` ini ke dalam repo kerja, di lokasi:
   bukti hasil produksi di README repo (`docs/bukti.jpg.webp`).
   Prompt mulai dipadatkan menjadi lembar data yang dibuka perintah
   `/motion-diorama` (pengulangan aturan dari SKILL.md dibuang;
-  keputusan siap pakai tetap di SKILL.md).
+  keputusan siap pakai tetap di SKILL.md). Contact sheet QC kini
+  digambari garis panduan area aman (margin 5% + zona platform
+  ±250/±310 px) supaya penilaian zona aman terlihat, bukan
+  dibayangkan.
 - v3.0 · edisi publik (13 Nov 2026) — **Mode Tinggal** menjadi bawaan
   edisi publik: sesi tidak lagi berhenti di Gerbang 1/2 — kedua
   gerbang dijalankan internal oleh sesi terhadap kriteria tertulis
