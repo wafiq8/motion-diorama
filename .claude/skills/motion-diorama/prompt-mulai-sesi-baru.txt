@@ -1,25 +1,15 @@
-PRODUKSI VIDEO BARU — SERI EDUKASI (MODE A, B, ATAU C)
+/motion-diorama
+(via plugin: /motion-diorama:motion-diorama)
 
-Repo ini berisi skill di .claude/skills/motion-diorama/SKILL.md.
-Baca file itu sekarang, lalu baca file references mode yang saya
-pilih di bawah (mode-a.md untuk Mode A, mode-b.md untuk Mode B,
-mode-c.md untuk Mode C), dan
-ikuti seluruh isinya persis — termasuk urutan tahap, Mode
-Tinggal, validator, dan QC mandiri wajibnya. Jangan melompati tahap.
-
-Data produksi kali ini:
+DATA PRODUKSI:
 - Mode: [A — lanskap/sejarah / B — bongkar benda / C — anatomi]
 - Topik: [ISI TOPIK VIDEO]
 - Sumber fakta utama: [TEMPEL TEKS SUMBER / SEBUTKAN FILE SUMBER DI REPO] — sumber ini menang bila bertentangan dengan sumber lain. Kamu boleh melengkapinya dengan riset web; cantumkan semua sumber tambahan di laporan akhir dan tandai klaim yang belum terverifikasi.
 - Label seri: [MIS. Sejarah Alam 3D] — Part [NOMOR] (hanya untuk caption — tidak tampil di dalam video)
 - Naskah narasi: [TEMPEL NASKAH FINAL, ATAU tulis: "belum ada — buatkan draf dari sumber di atas, lalu berhenti dan tunggu persetujuan saya sebelum lanjut"]
 - File MP3 narasi ada di root repo (nama file bebas) → pindahkan ke public/narasi.mp3. File musik saya juga di root repo → public/musik. Kalau salah satu belum ada, berhenti dan kabari saya — jangan menentukan timing apa pun sebelum MP3 narasi tersedia.
-
-Pengingat kunci dari skill (jangan dilanggar):
-- Durasi final 30–60 detik mengikuti audio; timeline.json adalah sumber kebenaran tunggal dan harus lolos scripts/validate_timeline.py sebelum scene dibangun.
-- Angka/data tampil sebagai readout layar; satu-satunya pengecualian: maksimal satu angka hero 3D emas untuk angka puncak video.
-- Penutup = kesimpulan (Mode A) / kesimpulan-prinsip (Mode B) / callback (Mode C), tanpa kartu/label seri di dalam video dan tanpa pill tahap/penanda posisi; call to value hanya bila saya minta untuk video ini; ajakan membeli dilarang.
-- Render per scene + concat FFmpeg -c copy; preview skala 0.5; full-res hanya sekali di tahap akhir; jalankan scripts/check_output.sh pada file final.
-- Mode Tinggal: YA (bawaan edisi publik) — jangan berhenti di gerbang; nilai sendiri ringkasan timeline dan contact sheet still terhadap kriteria skill, perbaiki sendiri (maks. 2 percobaan per scene), dan lanjut sampai video final. Keputusan siap pakai: narasi kepanjangan → percepat atempo maks. 1,25× dan catat faktornya di laporan; narasi kependekan → regangkan jeda penutup; fakta tambahan yang belum terverifikasi → tandai di laporan. Berhenti HANYA bila bahan tidak ada/rusak, transkrip mustahil, atau durasi tetap di luar 30–60 detik setelah atempo maks. Laporan akhir wajib melampirkan contact sheet, daftar penilaian still, dan semua keputusan otomatis. (Ganti baris ini menjadi "Mode Tinggal: TIDAK" bila ingin dua gerbang persetujuan klasik.)
+- Mode Tinggal: YA (bawaan edisi publik — keputusan siap pakai mengikuti SKILL.md; ganti baris ini menjadi "Mode Tinggal: TIDAK" bila ingin dua gerbang persetujuan klasik)
 
 Semua berkas hasil harus tampil sebagai file di sesi ini agar bisa diunduh.
+
+Catatan: bila perintah /motion-diorama di baris pertama tidak dikenal di permukaan ini, baca dan ikuti .claude/skills/motion-diorama/SKILL.md serta file references mode yang dipilih, persis seperti tertulis di sana.

@@ -61,7 +61,9 @@ Salin folder `motion-diorama` ini ke dalam repo kerja, di lokasi:
 1. Siapkan: mode (A/B/C) + topik + sumber fakta, naskah (atau minta draf), MP3 narasi,
    dan file musik — upload MP3 + musik ke root repo.
 2. Buka sesi baru Claude Code cloud pada repo itu, tempel isi
-   `prompt-mulai-sesi-baru.txt` yang sudah dilengkapi.
+   `prompt-mulai-sesi-baru.txt` yang sudah dilengkapi — lembar data
+   padat yang dibuka perintah `/motion-diorama`; aturan main
+   seluruhnya ada di SKILL.md.
 3. Tinggalkan sesi berjalan (Mode Tinggal bawaan): sesi memeriksa
    timeline + still sendiri dan lanjut sampai final; berhenti
    hanya untuk penghambat keras.
@@ -76,6 +78,9 @@ Salin folder `motion-diorama` ini ke dalam repo kerja, di lokasi:
   `.claude/skills/motion-diorama`). Jalur baru, belum teruji
   end-to-end; isi skill tidak berubah dari v3.0. Ditambah gambar
   bukti hasil produksi di README repo (`docs/bukti.jpg.webp`).
+  Prompt mulai dipadatkan menjadi lembar data yang dibuka perintah
+  `/motion-diorama` (pengulangan aturan dari SKILL.md dibuang;
+  keputusan siap pakai tetap di SKILL.md).
 - v3.0 · edisi publik (13 Nov 2026) — **Mode Tinggal** menjadi bawaan
   edisi publik: sesi tidak lagi berhenti di Gerbang 1/2 — kedua
   gerbang dijalankan internal oleh sesi terhadap kriteria tertulis

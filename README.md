@@ -57,7 +57,9 @@ Pilih satu:
 3. Upload MP3 narasi + musik ke root repo.
 4. Buka **sesi Claude Code baru**, tempel isi
    `.claude/skills/motion-diorama/prompt-mulai-sesi-baru.txt`
-   yang sudah kamu lengkapi (mode, topik, sumber, naskah).
+   yang sudah kamu lengkapi — lembar data itu dibuka dengan
+   perintah `/motion-diorama` dan hanya berisi data produksimu;
+   semua aturan main hidup di SKILL.md.
 5. **Tinggalkan sesi berjalan** — edisi publik memakai **Mode
    Tinggal**: sesi memeriksa timeline dan still-nya sendiri
    terhadap kriteria skill, memperbaiki sendiri temuannya, dan
