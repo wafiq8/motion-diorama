@@ -75,8 +75,10 @@ Salin folder `motion-diorama` ini ke dalam repo kerja, di lokasi:
 - v3.1 · edisi publik (13 Nov 2026) — jalur pasang keempat: **plugin
   marketplace Claude Code** (`.claude-plugin/marketplace.json` +
   `plugin.json` di root repo; bidang `skills` di marketplace menunjuk
-  `.claude/skills/motion-diorama`). Jalur baru, belum teruji
-  end-to-end; isi skill tidak berubah dari v3.0. Ditambah gambar
+  `.claude/skills/motion-diorama`). Teruji 13 Nov 2026 dengan
+  Claude Code 2.1.323: marketplace terdaftar, plugin terpasang,
+  skill ditemukan sebagai komponen plugin; isi skill tidak berubah
+  dari v3.0. Ditambah gambar
   bukti hasil produksi di README repo (`docs/bukti.jpg.webp`).
   Prompt mulai dipadatkan menjadi lembar data yang dibuka perintah
   `/motion-diorama` (pengulangan aturan dari SKILL.md dibuang;

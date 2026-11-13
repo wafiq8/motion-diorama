@@ -39,12 +39,12 @@ Pilih satu:
 3. **Aplikasi Claude** — unduh folder `.claude/skills/motion-diorama`
    dari repo ini sebagai `.zip`, lalu di aplikasi Claude buka
    **Customize → Skills → + → Upload**.
-4. **Plugin Claude Code** *(jalur baru)* — di dalam Claude Code:
+4. **Plugin Claude Code** — di dalam Claude Code:
    `/plugin marketplace add wafiq8/motion-diorama`, lalu
    `/plugin install motion-diorama@motion-diorama`; skill dipanggil
-   sebagai `/motion-diorama:motion-diorama`. Catatan jujur: jalur ini
-   baru ditambahkan dan belum diuji end-to-end oleh pembuatnya —
-   tiga jalur di atas adalah yang sudah terbukti.
+   sebagai `/motion-diorama:motion-diorama`. Jalur ini sudah diuji
+   pembuatnya (Claude Code 2.1.323): marketplace terdaftar, plugin
+   terpasang, dan skill-nya ditemukan sebagai komponen plugin.
 
 ## Cara pakai
 
