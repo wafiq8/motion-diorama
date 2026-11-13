@@ -14,6 +14,12 @@ bukan sesudahnya** — timeline divalidasi mesin, setiap tahap
 diperiksa terhadap kriteria tertulis sebelum tahap mahal dimulai,
 dan sesi wajib QC mandiri sebelum menyerahkan video final.
 
+![Bukti hasil motion-diorama](docs/bukti.jpg.webp)
+
+*Tiga panel pertama: frame dari produksi nyata pertama dengan skill
+ini (Mode C — perjalanan nutrisi: mulut, usus dua belas jari, hati).
+Panel terakhir: still Demo 3D dari folder `starter/`.*
+
 ## Tiga mode video
 
 | Mode | Isi | Contoh topik |
