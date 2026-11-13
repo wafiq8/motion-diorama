@@ -70,6 +70,11 @@ Salin folder `motion-diorama` ini ke dalam repo kerja, di lokasi:
 
 ## Versi
 
+- v3.1 · edisi publik (13 Nov 2026) — jalur pasang keempat: **plugin
+  marketplace Claude Code** (`.claude-plugin/marketplace.json` +
+  `plugin.json` di root repo; bidang `skills` di marketplace menunjuk
+  `.claude/skills/motion-diorama`). Jalur baru, belum teruji
+  end-to-end; isi skill tidak berubah dari v3.0.
 - v3.0 · edisi publik (13 Nov 2026) — **Mode Tinggal** menjadi bawaan
   edisi publik: sesi tidak lagi berhenti di Gerbang 1/2 — kedua
   gerbang dijalankan internal oleh sesi terhadap kriteria tertulis
