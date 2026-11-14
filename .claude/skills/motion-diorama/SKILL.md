@@ -3,7 +3,7 @@ name: motion-diorama
 description: "Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya 3D dari kode untuk seri edukasi berbahasa Indonesia, dalam tiga mode aktif — Mode A: diorama 3D semi-realistis (lanskap/sejarah, termasuk varian peta hidup); Mode B: bongkar benda (cara kerja benda/mesin); Mode C: ilustrasi anatomi 3D glossy (Seri Tubuh Manusia, ikuti-satu-aliran). Dirender dengan Remotion + Three.js; BUKAN footage asli dan BUKAN slideshow gambar AI. Mengunci timeline.json sebagai sumber kebenaran timing dari audio asli, style lock per mode, teks readout overlay DOM anti-kepotong, gerbang internal Mode Tinggal (sesi berjalan sendiri dari bahan sampai final; gerbang persetujuan klasik tersedia), QC mandiri fail-closed, render cepat per-scene, dan penutup kesimpulan/callback untuk membangun audiens."
 ---
 
-# Motion Diorama — Skill Produksi Video Edukasi (v3.0 · edisi publik)
+# Motion Diorama — Skill Produksi Video Edukasi (v3.2 · edisi publik)
 
 > Prinsip inti: **periksa sebelum render, bukan sesudahnya.** Semua yang
 > bisa dicek murah (timeline, still-frame, lebar teks) WAJIB lolos dulu.
@@ -260,7 +260,9 @@ description: "Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya 3D da
   still — jauh lebih murah daripada di video.
 - **Tahap 4 — Preview + QC mandiri:** render preview skala 0.5, jalankan
   QC di bawah atas hasil sendiri, perbaiki semua temuan (render ulang
-  hanya scene yang berubah) sebelum melapor.
+  hanya scene yang berubah) sebelum melapor. Perintah resminya di
+  proyek berbasis starter: `npm run preview` (Tahap 5: `npm run
+  final`).
 - **Tahap 5 — Final:** render full-res SEKALI; jalankan
   `bash scripts/check_output.sh out/<slug>-final.mp4`; tampilkan file +
   laporan QC di sesi.
@@ -272,6 +274,9 @@ description: "Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya 3D da
   scene, kalau tidak gabungan rusak).
 - `--concurrency` = jumlah core CPU sesi (cek `nproc`), jangan default.
 - Preview selalu `--scale=0.5`; full-res 1080×1920 hanya di Tahap 5.
+  Di starter perintahnya dibakukan di `package.json`: `npm run
+  preview` (skala 0,5) dan `npm run final` (full-res) — pipeline
+  per-scene produksi mengikuti pola yang sama.
 - Jaga biaya per frame rendah: geometri primitif, instancing untuk
   elemen berulang (rumput/pohon), tanpa efek per-pixel berat.
 - Setelah concat, probe ulang file gabungan (check_output.sh) — file

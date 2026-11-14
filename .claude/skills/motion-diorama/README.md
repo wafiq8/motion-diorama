@@ -72,6 +72,11 @@ Salin folder `motion-diorama` ini ke dalam repo kerja, di lokasi:
 
 ## Versi
 
+- v3.2 · edisi publik (14 Nov 2026) — dibangun per item dari saran
+  pembuat skill. Item 1: perintah render dibakukan di starter —
+  `npm run preview` (skala 0,5, untuk QC Tahap 4) dan `npm run
+  final` (full-res, Tahap 5). Aturan preview-nya tidak berubah;
+  sekarang ia bernama dan bisa dipanggil langsung.
 - v3.1 · edisi publik (13 Nov 2026) — jalur pasang keempat: **plugin
   marketplace Claude Code** (`.claude-plugin/marketplace.json` +
   `plugin.json` di root repo; bidang `skills` di marketplace menunjuk

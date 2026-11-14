@@ -32,6 +32,18 @@ persis yang terbukti jalan di produksi pembuat skill (Remotion
    musik di `public/musik.*` (oleh sesi, dari file yang kamu upload
    ke root repo).
 
+## Perintah render
+
+- `npm run preview` — render komposisi `Video` skala 0,5 ke
+  `out/preview.mp4`. Ini bahan penilaian QC (Tahap 4 di SKILL.md):
+  murah dan cepat, bukan hasil akhir.
+- `npm run final` — render full-res 1080×1920 ke `out/final.mp4`
+  (Tahap 5 — sekali saja, setelah QC hijau).
+
+Di produksi sungguhan sesi merender per scene lalu menggabungkan
+dengan FFmpeg (lihat SKILL.md), mengikuti pola yang sama: semua
+render QC berskala 0,5; full-res hanya di ujung.
+
 Kedua komposisi contoh sudah diverifikasi pembuat skill:
 `npm install` bersih, `npm run typecheck` lolos tanpa error, dan
 kedua still contoh berhasil dirender.
