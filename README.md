@@ -107,6 +107,5 @@ berikutnya jauh lebih cepat karena semua aset dipakai ulang.
 ## Lisensi & kredit
 
 MIT — lihat `LICENSE`. Dibuat oleh **Wafiq Abdur Rozaq**.
-Pendekatan skill-untuk-produksi-video terinspirasi pola kreator
-@motionformat; skill ini dibangun ulang dari nol dari pengamatan
-gaya dan riset terbuka — bukan afiliasi dan bukan produk mereka.
+Pendekatan skill-untuk-produksi-video, skill ini dibangun dari nol dari pengamatan
+gaya dan riset terbuka.
