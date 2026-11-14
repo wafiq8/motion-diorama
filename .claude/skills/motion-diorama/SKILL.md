@@ -87,8 +87,12 @@ description: "Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya 3D da
 - Dilarang menebak durasi dari jumlah kata/storyboard. Timing HANYA dari
   audio asli (lihat Timing).
 - Dilarang animasi dari `useFrame()`, `Math.random()`, `Date.now()`, atau
-  akumulasi frame — semua gerak diturunkan dari `useCurrentFrame()` dan
-  konstanta acak ber-seed tetap.
+  akumulasi frame — semua gerak diturunkan dari `useCurrentFrame()`, dan
+  keacakan prosedural apa pun (partikel, awan, sebaran elemen) WAJIB
+  diturunkan dari `seed` di `proyek.config.json` (mis. `random()`
+  bawaan Remotion ber-seed dari config) — bukan konstanta acak yang
+  tercecer di kode scene. Seed yang sama = hasil yang sama di setiap
+  render ulang.
 
 ## Timing — timeline.json adalah sumber kebenaran tunggal
 
@@ -234,12 +238,19 @@ description: "Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya 3D da
 
 ## Alur produksi (urutan tidak boleh dilompati)
 
-- **Tahap 0 — Scaffold:** pakai scaffold proyek yang sudah ada;
+- **Tahap 0 — Scaffold + config:** pakai scaffold proyek yang sudah ada;
   renderer, kamera rig, style lock, dan primitif TIDAK ditulis ulang.
   Kalau repo belum berisi proyek Remotion (produksi pertama):
   bangun scaffold dari folder `starter/` di repo paket skill ini
   (dependensi versi persis yang terbukti jalan), lalu perlakukan
-  sebagai scaffold yang sudah ada.
+  sebagai scaffold yang sudah ada. Di tahap ini juga: tulis
+  `proyek.config.json` di root proyek dari lembar data prompt —
+  isinya `mode`, `slug`, `seed` (bawaan: tanggal produksi format
+  YYYYMMDD), `lebar`/`tinggi`/`fps` (bawaan terkunci 1080/1920/30),
+  `palette` (NAMA varian terkunci milik mode video ini — bukan hex
+  bebas), dan `seri`/`part` untuk caption. File ini sumber kebenaran
+  pengaturan proyek: komposisi membaca resolusi/fps darinya dan
+  semua keacakan menurunkan seed darinya.
 - **Tahap 1 — Timeline:** sesuai bagian Timing → validator PASS →
   Gerbang 1 (internal di Mode Tinggal; persetujuan user di mode klasik).
 - **Tahap 2 — Bangun scene** membaca timeline.json dan file referensi
@@ -284,8 +295,11 @@ description: "Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya 3D da
 
 ## QC mandiri wajib (fail-closed — semua harus PASS)
 
-1. `validate_timeline.py` PASS dan file final ter-probe: 1080×1920,
-   30 fps, durasi 30–60 detik, audio ada sampai mendekati akhir.
+1. `validate_timeline.py` PASS dan file final ter-probe: resolusi/fps
+   cocok dengan `proyek.config.json` (bawaan 1080×1920, 30 fps),
+   durasi 30–60 detik, audio ada sampai mendekati akhir; dan tidak
+   ada `Math.random`/`Date.now` tersisa di `src/` — semua keacakan
+   berasal dari `seed` config.
 2. Setiap batas scene ≤ 0,3 detik dari awal kalimat pemetaannya.
 3. Tidak ada teks terpotong/keluar zona aman di contact sheet &
    preview — dinilai terhadap garis panduan yang tergambar di

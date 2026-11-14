@@ -17,6 +17,10 @@ persis yang terbukti jalan di produksi pembuat skill (Remotion
   `Karaoke` (subtitle 2–4 kata, kata kunci kuning), `Readout`
   (counter beranimasi + label), `Chip` (label menempel yang menyala
   saat aktif), `JudulFase` (penanda bab sesaat Mode B).
+- `proyek.config.json` + `src/config.ts` — pengaturan proyek sebagai
+  data: mode, slug, `seed`, resolusi/fps, palette, seri/part.
+  `Root.tsx` membaca resolusi/fps dari config; `Demo3D` menurunkan
+  partikel bokehnya dari `seed` config lewat `random()` Remotion.
 
 ## Cara pakai
 
@@ -31,6 +35,20 @@ persis yang terbukti jalan di produksi pembuat skill (Remotion
    video di atasnya. File narasi ditaruh di `public/narasi.mp3`,
    musik di `public/musik.*` (oleh sesi, dari file yang kamu upload
    ke root repo).
+
+## Config proyek — `proyek.config.json`
+
+Satu file JSON di root proyek, ditulis sesi di Tahap 0 dari lembar
+data produksi. Mengganti kebiasaan menyalin angka ke kode:
+
+- `mode` / `slug` / `seri` / `part` — identitas video (seri/part
+  hanya untuk caption, tidak tampil di video).
+- `seed` — sumber semua keacakan prosedural. Seed sama = render
+  ulang identik. Bawaan: tanggal produksi (YYYYMMDD).
+- `lebar` / `tinggi` / `fps` — bawaan terkunci 1080×1920 / 30.
+- `palette` — NAMA varian terkunci milik mode-nya (mis.
+  `mode-c-void`), bukan hex bebas; pilihan warnanya tetap diatur
+  style lock di SKILL.md dan file references per mode.
 
 ## Perintah render
 

@@ -6,6 +6,7 @@ DATA PRODUKSI:
 - Topik: [ISI TOPIK VIDEO]
 - Sumber fakta utama: [TEMPEL TEKS SUMBER / SEBUTKAN FILE SUMBER DI REPO] — sumber ini menang bila bertentangan dengan sumber lain. Kamu boleh melengkapinya dengan riset web; cantumkan semua sumber tambahan di laporan akhir dan tandai klaim yang belum terverifikasi.
 - Label seri: [MIS. Sejarah Alam 3D] — Part [NOMOR] (hanya untuk caption — tidak tampil di dalam video)
+- Config proyek: tulis data produksi ini ke `proyek.config.json` di root proyek pada Tahap 0 — termasuk `seed` (bawaan: tanggal produksi format YYYYMMDD, ganti bila saya menentukan lain) dan `palette` = nama varian terkunci mode di atas.
 - Naskah narasi: [TEMPEL NASKAH FINAL, ATAU tulis: "belum ada — buatkan draf dari sumber di atas, lalu berhenti dan tunggu persetujuan saya sebelum lanjut"]
 - File MP3 narasi ada di root repo (nama file bebas) → pindahkan ke public/narasi.mp3. File musik saya juga di root repo → public/musik. Kalau salah satu belum ada, berhenti dan kabari saya — jangan menentukan timing apa pun sebelum MP3 narasi tersedia.
 - Mode Tinggal: YA (bawaan edisi publik — keputusan siap pakai mengikuti SKILL.md; ganti baris ini menjadi "Mode Tinggal: TIDAK" bila ingin dua gerbang persetujuan klasik)

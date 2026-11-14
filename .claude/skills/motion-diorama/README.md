@@ -76,7 +76,14 @@ Salin folder `motion-diorama` ini ke dalam repo kerja, di lokasi:
   pembuat skill. Item 1: perintah render dibakukan di starter —
   `npm run preview` (skala 0,5, untuk QC Tahap 4) dan `npm run
   final` (full-res, Tahap 5). Aturan preview-nya tidak berubah;
-  sekarang ia bernama dan bisa dipanggil langsung.
+  sekarang ia bernama dan bisa dipanggil langsung. Item 2:
+  pengaturan proyek menjadi satu file `proyek.config.json` di root
+  proyek (mode, slug, seed, resolusi/fps, palette = nama varian
+  terkunci, seri/part), ditulis sesi di Tahap 0; semua keacakan
+  prosedural wajib turun dari `seed` config dan QC memeriksa tidak
+  ada `Math.random` tersisa — starter membuktikannya lewat
+  `Root.tsx` yang membaca resolusi/fps dari config dan partikel
+  bokeh `Demo3D` yang ber-seed dari config.
 - v3.1 · edisi publik (13 Nov 2026) — jalur pasang keempat: **plugin
   marketplace Claude Code** (`.claude-plugin/marketplace.json` +
   `plugin.json` di root repo; bidang `skills` di marketplace menunjuk
