@@ -83,7 +83,11 @@ Salin folder `motion-diorama` ini ke dalam repo kerja, di lokasi:
   prosedural wajib turun dari `seed` config dan QC memeriksa tidak
   ada `Math.random` tersisa — starter membuktikannya lewat
   `Root.tsx` yang membaca resolusi/fps dari config dan partikel
-  bokeh `Demo3D` yang ber-seed dari config.
+  bokeh `Demo3D` yang ber-seed dari config. Item 3: skrip baru
+  `scripts/buat_srt.py` mengekspor subtitle SRT dari timeline.json
+  (satu cue per kalimat, teks naskah resmi, fail-closed) di Tahap 5
+  menjadi `out/subtitel.srt` — untuk caption YouTube/Shorts dan
+  arsip; karaoke terbakar tetap subtitle utama IG/TikTok.
 - v3.1 · edisi publik (13 Nov 2026) — jalur pasang keempat: **plugin
   marketplace Claude Code** (`.claude-plugin/marketplace.json` +
   `plugin.json` di root repo; bidang `skills` di marketplace menunjuk

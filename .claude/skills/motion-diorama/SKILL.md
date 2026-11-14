@@ -275,8 +275,12 @@ description: "Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya 3D da
   proyek berbasis starter: `npm run preview` (Tahap 5: `npm run
   final`).
 - **Tahap 5 — Final:** render full-res SEKALI; jalankan
-  `bash scripts/check_output.sh out/<slug>-final.mp4`; tampilkan file +
-  laporan QC di sesi.
+  `bash scripts/check_output.sh out/<slug>-final.mp4`; lalu buat
+  subtitle portabel dari timeline yang sama:
+  `python3 scripts/buat_srt.py docs/timeline.json out/subtitel.srt`
+  (satu cue per kalimat, teks naskah resmi — untuk YouTube/Shorts dan
+  arsip; karaoke terbakar tetap subtitle utama IG/TikTok); tampilkan
+  file + laporan QC di sesi.
 
 ## Render cepat (pipeline terkunci)
 
@@ -327,7 +331,7 @@ description: "Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya 3D da
 ## Output dan laporan
 
 - `out/scenes/scene-N.mp4`, `out/<slug>-preview.mp4`,
-  `out/<slug>-final.mp4`, `out/contact-sheet.png`,
+  `out/<slug>-final.mp4`, `out/contact-sheet.png`, `out/subtitel.srt`,
   `docs/timeline.json`.
 - Laporan akhir WAJIB memuat: tabel kalimat ringkas, pemetaan scene,
   hasil validator + check_output, dan hasil 10 poin QC satu per satu.
