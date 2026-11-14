@@ -296,6 +296,15 @@ description: "Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya 3D da
   elemen berulang (rumput/pohon), tanpa efek per-pixel berat.
 - Setelah concat, probe ulang file gabungan (check_output.sh) — file
   hasil gabungan adalah yang dinilai, bukan klaim render.
+- **Antrean render (opsional, versi sempit):** beberapa proyek yang
+  timeline-nya SUDAH lolos validator boleh dirender final berurutan
+  tanpa dijaga satu-satu:
+  `bash scripts/antre-render.sh <folder-proyek> [folder lain ...]`.
+  Per proyek ia menjalankan `npm run final` → check_output → SRT,
+  melewati proyek yang timeline-nya gagal (dicatat di ringkasan
+  akhir), dan tidak menghentikan antrean saat satu proyek gagal.
+  Antrean TIDAK menggantikan gerbang/QC per video — ia hanya
+  mengerjakan render final yang sudah hijau.
 
 ## QC mandiri wajib (fail-closed — semua harus PASS)
 

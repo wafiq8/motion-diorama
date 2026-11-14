@@ -87,7 +87,13 @@ Salin folder `motion-diorama` ini ke dalam repo kerja, di lokasi:
   `scripts/buat_srt.py` mengekspor subtitle SRT dari timeline.json
   (satu cue per kalimat, teks naskah resmi, fail-closed) di Tahap 5
   menjadi `out/subtitel.srt` — untuk caption YouTube/Shorts dan
-  arsip; karaoke terbakar tetap subtitle utama IG/TikTok.
+  arsip; karaoke terbakar tetap subtitle utama IG/TikTok. Item 4:
+  `scripts/antre-render.sh` — antrean render versi sempit: merender
+  final beberapa proyek berbasis starter yang timeline-nya sudah
+  lolos validator, berurutan tanpa dijaga (render → check_output →
+  SRT per proyek; yang gagal dilewati/dicatat, antrean tidak
+  berhenti), ditutup ringkasan per proyek. Bukan produksi massal —
+  gerbang dan QC per video tetap berjalan seperti biasa.
 - v3.1 · edisi publik (13 Nov 2026) — jalur pasang keempat: **plugin
   marketplace Claude Code** (`.claude-plugin/marketplace.json` +
   `plugin.json` di root repo; bidang `skills` di marketplace menunjuk
