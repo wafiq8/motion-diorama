@@ -93,7 +93,14 @@ Salin folder `motion-diorama` ini ke dalam repo kerja, di lokasi:
   lolos validator, berurutan tanpa dijaga (render → check_output →
   SRT per proyek; yang gagal dilewati/dicatat, antrean tidak
   berhenti), ditutup ringkasan per proyek. Bukan produksi massal —
-  gerbang dan QC per video tetap berjalan seperti biasa.
+  gerbang dan QC per video tetap berjalan seperti biasa. Item 5
+  (versi sempit): README utama kini punya bagian “Contoh hasil” —
+  frame produksi nyata pertama dijelaskan sebagai bukti, file-file
+  `contoh/` dipetakan ke tahap skill-nya, dan tautan halaman
+  skills.sh dicantumkan; proyek contoh berkode lengkap belum
+  disertakan dan itu dinyatakan apa adanya di sana. **Dengan ini
+  v3.2 TUNTAS** — kelima item yang dibahas dan disetujui satu per
+  satu sudah terpasang.
 - v3.1 · edisi publik (13 Nov 2026) — jalur pasang keempat: **plugin
   marketplace Claude Code** (`.claude-plugin/marketplace.json` +
   `plugin.json` di root repo; bidang `skills` di marketplace menunjuk

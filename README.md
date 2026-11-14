@@ -28,6 +28,29 @@ Panel terakhir: still Demo 3D dari folder `starter/`.*
 | **B — Bongkar Benda** | Cara kerja benda/mesin: konteks → zoom → dibongkar → dibelah → menyala → makro mekanisme → prinsip | Rice cooker, mesin jet, AC |
 | **C — Anatomi** | Ilustrasi anatomi 3D glossy mengikuti satu aliran (follow-one-flow), kode warna aliran mutlak | Jantung, perjalanan nutrisi, peredaran darah |
 
+## Contoh hasil
+
+- **Produksi nyata pertama** — gambar di atas adalah frame asli
+  dari video Mode C “Perjalanan Nutrisi” (Seri Tubuh Manusia
+  Part 1, 58,8 detik) yang selesai diproduksi dengan sistem skill
+  ini: mulut, usus dua belas jari, dan hati. Panel terakhir adalah
+  still komposisi `Demo3D` dari folder `starter/` — bukti scaffold
+  yang kamu terima memang bisa dirender.
+- **Bahan contoh siap pakai** ada di folder `contoh/`:
+  `storyboard-contoh-mode-b.md` adalah storyboard Mode B (rice
+  cooker) — bentuk bahan yang kamu siapkan sebelum sesi dimulai;
+  `naskah-contoh.txt` adalah naskah narasi pendampingnya (55 kata,
+  ±30 detik) — bahan Tahap 1, sebelum direkam menjadi MP3. Sisanya
+  (timeline terukur dari audio, scene 3D, QC, file final) dikerjakan
+  sesi untukmu.
+- Halaman skill ini di direktori skills.sh:
+  [skills.sh/wafiq8/motion-diorama](https://www.skills.sh/wafiq8/motion-diorama).
+- Catatan jujur: repo ini **belum** menyertakan proyek contoh
+  berkode lengkap yang bisa dibedah baris demi baris; yang tersedia
+  adalah bahan contoh di atas, bukti frame produksi nyata, dan
+  scaffold starter yang terverifikasi. Video-video hasil produksi
+  tayang di kanal kreatornya.
+
 ## Cara pasang
 
 Pilih satu:
