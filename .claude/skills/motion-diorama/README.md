@@ -1,6 +1,6 @@
 # motion-diorama — Tool Produksi Video Edukasi (Mode A + B + C)
 
-Skill Claude Code untuk membuat video edukasi vertikal 9:16 (30–60 detik)
+Skill Claude Code untuk membuat video edukasi vertikal 9:16 (30–60 detik; A2: 30–120 detik)
 bergaya 3D dari kode (Remotion + Three.js), dibangun dari
 pengamatan pola kreator Motion Format, dalam tiga mode aktif: Mode A — diorama 3D semi-realistis
 (lanskap/sejarah + varian peta hidup); Mode B — bongkar benda
@@ -15,7 +15,7 @@ fail-closed sebelum menyerahkan hasil.
 
 Mode A + B + C aktif · tujuan bangun audiens (penutup kesimpulan/callback, tanpa kartu seri & tanpa pill tahap;
 CTV hanya sesekali bila diminta) · angka = readout layar (hybrid: maks.
-satu angka hero 3D emas per video) · durasi 30–60 detik · suara agnostik (MP3 dari user) ·
+satu angka hero 3D emas per video) · durasi 30–60 detik (A2: 30–120) · suara agnostik (MP3 dari user) ·
 musik dari user · fakta: sumber user utama, riset web boleh melengkapi
 + wajib cantumkan sumber · operator tunggal ·
 target 1–2 video/hari · render cepat per-scene + concat (pola optimasi
@@ -41,7 +41,7 @@ Puppeteer/FFmpeg).
 - `scripts/validate_timeline.py` — validator fail-closed untuk
   timeline.json (sudah diuji: PASS pada contoh valid).
 - `scripts/check_output.sh` — pemeriksa file final via ffprobe/ffmpeg:
-  resolusi, fps, durasi 30–60, keheningan, loudness (sudah diuji).
+  resolusi, fps, durasi (30–60; A2: 30–120), keheningan, loudness (sudah diuji).
 - `evals/evals.md` — 5 skenario uji (aliran, peta, bantahan mitos,
   anatomi Mode C, bongkar benda Mode B) +
   asersi lulus/gagal terukur; jalankan sebelum skill disebut selesai.
@@ -83,7 +83,7 @@ Salin folder `motion-diorama` ini ke dalam repo kerja, di lokasi:
   (piktogram 2D dicabut, pengecualian jarak kamera), tahap bawah
   permukaan (penampang batimetri + segmen bawah air), layer data
   berlegenda, dua struktur narasi (mesin waktu / perjalanan bukti).
-  Item 3–6 menyusul per persetujuan user; penulisan ulang klaim
+  Item 3: durasi Varian A2 menjadi 30–120 detik — validator membaca field variant di timeline.json, check_output membaca rentang yang sama (otomatis dari timeline atau argumen); mode lain tetap 30–60. Item 4–6 menyusul per persetujuan user; penulisan ulang klaim
   publik adalah Item 6.
 - v3.2 · edisi publik (14 Nov 2026) — dibangun per item dari saran
   pembuat skill. Item 1: perintah render dibakukan di starter —

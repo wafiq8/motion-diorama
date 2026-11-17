@@ -1,6 +1,6 @@
 ---
 name: motion-diorama
-description: "Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya 3D dari kode untuk seri edukasi berbahasa Indonesia, dalam tiga mode aktif — Mode A: diorama 3D semi-realistis (lanskap/sejarah, termasuk varian peta hidup); Mode B: bongkar benda (cara kerja benda/mesin); Mode C: ilustrasi anatomi 3D glossy (Seri Tubuh Manusia, ikuti-satu-aliran). Dirender dengan Remotion + Three.js; BUKAN footage asli dan BUKAN slideshow gambar AI. Mengunci timeline.json sebagai sumber kebenaran timing dari audio asli, style lock per mode, teks readout overlay DOM anti-kepotong, gerbang internal Mode Tinggal (sesi berjalan sendiri dari bahan sampai final; gerbang persetujuan klasik tersedia), QC mandiri fail-closed, render cepat per-scene, dan penutup kesimpulan/callback untuk membangun audiens."
+description: "Produksi video edukasi vertikal 9:16 (30–60 detik; Varian A2: 30–120 detik) bergaya 3D dari kode untuk seri edukasi berbahasa Indonesia, dalam tiga mode aktif — Mode A: diorama 3D semi-realistis (lanskap/sejarah, termasuk varian peta hidup); Mode B: bongkar benda (cara kerja benda/mesin); Mode C: ilustrasi anatomi 3D glossy (Seri Tubuh Manusia, ikuti-satu-aliran). Dirender dengan Remotion + Three.js; BUKAN footage asli dan BUKAN slideshow gambar AI. Mengunci timeline.json sebagai sumber kebenaran timing dari audio asli, style lock per mode, teks readout overlay DOM anti-kepotong, gerbang internal Mode Tinggal (sesi berjalan sendiri dari bahan sampai final; gerbang persetujuan klasik tersedia), QC mandiri fail-closed, render cepat per-scene, dan penutup kesimpulan/callback untuk membangun audiens."
 ---
 
 # Motion Diorama — Skill Produksi Video Edukasi (v4.0 · edisi publik)
@@ -34,7 +34,8 @@ description: "Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya 3D da
   emas di dalam scene per video, hanya untuk angka puncak video itu —
   dan angka yang sama WAJIB tetap tampil sebagai readout/caption,
   karena versi 3D adalah penekanan visual, bukan pembawa informasi.
-- Durasi final **30–60 detik**, mengikuti audio.
+- Durasi final **30–60 detik**, mengikuti audio. Pengecualian
+  Varian A2 (format peta): **30–120 detik**.
 - Suara: skill ini AGNOSTIK suara — pakai MP3 narasi apa pun yang
   disediakan user di `public/narasi.mp3`.
 - Musik: file dari user di `public/musik.*` — jangan memilihkan musik.
@@ -61,8 +62,8 @@ description: "Produksi video edukasi vertikal 9:16 (30–60 detik) bergaya 3D da
   diajukan SEKALIGUS dalam satu pesan sebelum pembangunan dimulai —
   dilarang bertanya di tengah jalan. Sesi hanya boleh berhenti di
   tengah untuk PENGHAMBAT KERAS: (a) bahan tidak ada atau rusak,
-  (b) transkrip mustahil dibuat, (c) narasi tetap di luar 30–60
-  detik setelah atempo maks. Bila prompt menyatakan "Mode Tinggal:
+  (b) transkrip mustahil dibuat, (c) narasi tetap di luar rentang
+  formatnya (30–60 detik; A2: 30–120 detik) setelah atempo maks. Bila prompt menyatakan "Mode Tinggal:
   TIDAK", berlaku gerbang klasik — dua persetujuan user (sesudah
   Tahap 1 dan sesudah Tahap 3) dengan tangga pelonggaran Gerbang 2
   berbasis bukti: 3 lolos bersih berturut-turut → 1 still per scene;
@@ -152,6 +153,10 @@ sejak produksi pertama.
 }
 ```
 
+   Field `"variant": "A2"` WAJIB diisi untuk produksi Varian A2 —
+   validator membaca field ini untuk batas durasi 30–120 detik;
+   tanpa field itu batas 30–60 detik berlaku.
+
 4. Aturan pemetaan: batas scene = detik MULAI kalimat pertama scene
    berikutnya; pemetaan berdasarkan ISI kalimat — dilarang mengelompokkan
    kalimat demi mengisi durasi; selisih potongan aktual vs timeline
@@ -162,7 +167,8 @@ sejak produksi pertama.
    durasi) dan nilai sendiri terhadap kriteria ini — ini Gerbang 1.
    Mode Tinggal: jangan berhenti; simpan ringkasan untuk laporan
    akhir. Mode gerbang klasik: tampilkan ke user dan TUNGGU persetujuan.
-7. `total_duration_s` harus 30–60 detik. Di luar itu: Mode Tinggal —
+7. `total_duration_s` harus masuk rentang formatnya (30–60 detik;
+   Varian A2: 30–120 detik). Di luar itu: Mode Tinggal —
    terapkan kebijakan prompt (atempo maks. 1,25× untuk kepanjangan;
    regangkan jeda penutup untuk kependekan) dan catat di laporan;
    bila tetap di luar rentang, itu PENGHAMBAT KERAS: berhenti dan
@@ -310,7 +316,9 @@ sejak produksi pertama.
   proyek berbasis starter: `npm run preview` (Tahap 5: `npm run
   final`).
 - **Tahap 5 — Final:** render full-res SEKALI; jalankan
-  `bash scripts/check_output.sh out/<slug>-final.mp4`; lalu buat
+  `bash scripts/check_output.sh out/<slug>-final.mp4`
+  (Varian A2: rentang 30–120 terbaca otomatis dari timeline.json,
+  atau beri argumen `30 120`); lalu buat
   subtitle portabel dari timeline yang sama:
   `python3 scripts/buat_srt.py docs/timeline.json out/subtitel.srt`
   (satu cue per kalimat, teks naskah resmi — untuk YouTube/Shorts dan
@@ -345,7 +353,8 @@ sejak produksi pertama.
 
 1. `validate_timeline.py` PASS dan file final ter-probe: resolusi/fps
    cocok dengan `proyek.config.json` (bawaan 1080×1920, 30 fps),
-   durasi 30–60 detik, audio ada sampai mendekati akhir; dan tidak
+   durasi masuk rentang format (30–60; A2: 30–120), audio ada
+   sampai mendekati akhir; dan tidak
    ada `Math.random`/`Date.now` tersisa di `src/` — semua keacakan
    berasal dari `seed` config.
 2. Setiap batas scene ≤ 0,3 detik dari awal kalimat pemetaannya.
