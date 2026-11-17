@@ -1,11 +1,13 @@
 # motion-diorama
 
 **Skill Claude Code open-source untuk memproduksi video edukasi
-vertikal 9:16 (30–60 detik) bergaya 3D — langsung dari kode**
-(Remotion + Three.js). Bukan slideshow gambar AI, bukan footage:
-semua visual adalah geometri 3D prosedural yang dirender per scene,
-dengan timing yang diukur dari audio narasi aslimu — bukan tebakan
-jumlah kata.
+vertikal 9:16 (30–60 detik; format peta 30–120 detik) bergaya 3D —
+diproduksi dari kode** (Remotion + Three.js). Bukan slideshow
+gambar AI, bukan footage: visual dibangun sebagai scene 3D per
+scene — prosedural secara bawaan, dan khusus format peta memakai
+data geografi asli serta model 3D berlisensi terbuka bila
+diperlukan — dengan timing yang diukur dari audio narasi aslimu,
+bukan tebakan jumlah kata, dan sitasi sumber tampil di layar.
 
 Skill ini adalah sistem produksi nyata yang sudah teruji
 memproduksi seri edukasi 3D berbahasa Indonesia, dan dibuka untuk
@@ -72,7 +74,7 @@ Pilih satu:
 ## Cara pakai
 
 1. Siapkan **storyboard/naskah narasi final** dan **MP3 narasi**
-   (30–60 detik, dari TTS pilihanmu — skill ini agnostik suara)
+   (30–60 detik — format peta 30–120 — dari TTS pilihanmu — skill ini agnostik suara)
    plus **satu file musik** pilihanmu.
 2. Salin isi folder `starter/` ke root repo kerjamu (scaffold
    Remotion yang sudah terverifikasi: `npm install` bersih,
