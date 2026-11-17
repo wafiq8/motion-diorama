@@ -72,6 +72,13 @@ Salin folder `motion-diorama` ini ke dalam repo kerja, di lokasi:
 
 ## Versi
 
+- v4.0 · edisi publik (17 Nov 2026) — amendemen jalur sudutpeta,
+  dibangun per item. Item 1: aturan aset diganti — larangan total
+  model unduhan dan tekstur/data luar dicabut, diganti aturan
+  berlisensi (CC BY/CC0/Polyfork saja; badge dicek per model; GLB
+  di-vendor; kredit di laporan + caption; data peta S2Cloudless/
+  GEBCO/OSM khusus panggung peta). Item 2–6 menyusul per persetujuan
+  user; penulisan ulang klaim publik adalah Item 6.
 - v3.2 · edisi publik (14 Nov 2026) — dibangun per item dari saran
   pembuat skill. Item 1: perintah render dibakukan di starter —
   `npm run preview` (skala 0,5, untuk QC Tahap 4) dan `npm run
