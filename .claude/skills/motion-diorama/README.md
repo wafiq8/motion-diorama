@@ -83,7 +83,7 @@ Salin folder `motion-diorama` ini ke dalam repo kerja, di lokasi:
   (piktogram 2D dicabut, pengecualian jarak kamera), tahap bawah
   permukaan (penampang batimetri + segmen bawah air), layer data
   berlegenda, dua struktur narasi (mesin waktu / perjalanan bukti).
-  Item 3: durasi Varian A2 menjadi 30–120 detik — validator membaca field variant di timeline.json, check_output membaca rentang yang sama (otomatis dari timeline atau argumen); mode lain tetap 30–60. Item 4–6 menyusul per persetujuan user; penulisan ulang klaim
+  Item 3: durasi Varian A2 menjadi 30–120 detik — validator membaca field variant di timeline.json, check_output membaca rentang yang sama (otomatis dari timeline atau argumen); mode lain tetap 30–60. Item 4: penutup Varian A2 struktur perjalanan bukti menjadi verdict singkat + pertanyaan terbuka spesifik (pertanyaan generik pancingan komentar dilarang, tanpa CTA); mesin waktu dan mode lain tidak berubah. Item 5–6 menyusul per persetujuan user; penulisan ulang klaim
   publik adalah Item 6.
 - v3.2 · edisi publik (14 Nov 2026) — dibangun per item dari saran
   pembuat skill. Item 1: perintah render dibakukan di starter —

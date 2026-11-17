@@ -1,6 +1,6 @@
 ---
 name: motion-diorama
-description: "Produksi video edukasi vertikal 9:16 (30–60 detik; Varian A2: 30–120 detik) bergaya 3D dari kode untuk seri edukasi berbahasa Indonesia, dalam tiga mode aktif — Mode A: diorama 3D semi-realistis (lanskap/sejarah, termasuk varian peta hidup); Mode B: bongkar benda (cara kerja benda/mesin); Mode C: ilustrasi anatomi 3D glossy (Seri Tubuh Manusia, ikuti-satu-aliran). Dirender dengan Remotion + Three.js; BUKAN footage asli dan BUKAN slideshow gambar AI. Mengunci timeline.json sebagai sumber kebenaran timing dari audio asli, style lock per mode, teks readout overlay DOM anti-kepotong, gerbang internal Mode Tinggal (sesi berjalan sendiri dari bahan sampai final; gerbang persetujuan klasik tersedia), QC mandiri fail-closed, render cepat per-scene, dan penutup kesimpulan/callback untuk membangun audiens."
+description: "Produksi video edukasi vertikal 9:16 (30–60 detik; Varian A2: 30–120 detik) bergaya 3D dari kode untuk seri edukasi berbahasa Indonesia, dalam tiga mode aktif — Mode A: diorama 3D semi-realistis (lanskap/sejarah, termasuk varian peta hidup); Mode B: bongkar benda (cara kerja benda/mesin); Mode C: ilustrasi anatomi 3D glossy (Seri Tubuh Manusia, ikuti-satu-aliran). Dirender dengan Remotion + Three.js; BUKAN footage asli dan BUKAN slideshow gambar AI. Mengunci timeline.json sebagai sumber kebenaran timing dari audio asli, style lock per mode, teks readout overlay DOM anti-kepotong, gerbang internal Mode Tinggal (sesi berjalan sendiri dari bahan sampai final; gerbang persetujuan klasik tersedia), QC mandiri fail-closed, render cepat per-scene, dan penutup kesimpulan/callback (A2 perjalanan bukti: pertanyaan terbuka) untuk membangun audiens."
 ---
 
 # Motion Diorama — Skill Produksi Video Edukasi (v4.0 · edisi publik)
@@ -24,7 +24,9 @@ description: "Produksi video edukasi vertikal 9:16 (30–60 detik; Varian A2: 30
   video lewat prompt mulai; sesi membaca file referensi mode itu
   sebelum Tahap 2.
 - Tujuan: **membangun audiens.** Penutup bawaan = kesimpulan (Mode A)
-  / callback (Mode C) + fade ke hitam. TIDAK ada kartu/label seri di
+  / callback (Mode C) + fade ke hitam. Pengecualian Varian A2 struktur
+  perjalanan bukti: penutup = verdict singkat + pertanyaan terbuka
+  spesifik (lihat references/mode-a.md). TIDAK ada kartu/label seri di
   dalam video dan TIDAK ada pill tahap/penanda posisi di layar
   (keputusan user 13 Nov 2026, v2.8) — identitas seri hanya hidup di
   caption. Call to value HANYA sesekali, bila topiknya pas dan user
@@ -206,7 +208,9 @@ sejak produksi pertama.
 - Penutup: beauty shot + judul/era serif diulang + kalimat kesimpulan.
   Fade ke hitam; tanpa label/kartu seri di dalam video (v2.8).
   (Call to value hanya bila
-  diminta untuk video ini.)
+  diminta untuk video ini.) Pengecualian A2 perjalanan bukti: penutup
+  = verdict singkat + pertanyaan terbuka spesifik, bukan kesimpulan
+  (detail di references/mode-a.md).
 
 ### Mode B — Bongkar Benda (detail di references/mode-b.md)
 
@@ -377,7 +381,8 @@ sejak produksi pertama.
    organ hero utuh terbaca dan kode warna aliran tidak terbalik
    (cek khusus Mode C di references/mode-c.md WAJIB ikut diperiksa).
 10. Penutup memuat kesimpulan (Mode A), kesimpulan/prinsip (Mode B),
-    atau callback (Mode C); fade
+    atau callback (Mode C) — khusus A2 perjalanan bukti: verdict +
+    pertanyaan terbuka spesifik; fade
     ke hitam bersih; TIDAK ada kartu/label seri, pill tahap, atau
     penanda posisi di frame mana pun (v2.8).
     (CTV hadir hanya bila diminta untuk video ini.)
