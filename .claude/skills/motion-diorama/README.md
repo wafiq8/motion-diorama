@@ -72,6 +72,10 @@ Salin folder `motion-diorama` ini ke dalam repo kerja, di lokasi:
 
 ## Versi
 
+- v4.1 · edisi publik (18 Nov 2026) — aturan figur manusia
+  'siluet plus': proporsi manusia + sendi bergerak + maks. satu
+  warna peran muted; wajah tetap wajib kosong; figur realistis
+  tetap dilarang.
 - v4.0 · edisi publik (17 Nov 2026) — amendemen jalur sudutpeta,
   dibangun per item. Item 1: aturan aset diganti — larangan total
   model unduhan dan tekstur/data luar dicabut, diganti aturan
