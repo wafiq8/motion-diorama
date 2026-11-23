@@ -3,7 +3,7 @@ name: motion-diorama
 description: "Produksi video edukasi vertikal 9:16 (30–60 detik; Varian A2 & Mode D: 30–120 detik) bergaya 3D dari kode (Mode D: flat 2D dari kode) (prosedural secara bawaan; format peta memakai data geografi asli & model berlisensi terbuka) untuk seri edukasi berbahasa Indonesia, dalam empat mode aktif — Mode A: diorama 3D semi-realistis (lanskap/sejarah, termasuk varian peta hidup); Mode B: bongkar benda (cara kerja benda/mesin); Mode C: ilustrasi anatomi 3D glossy (Seri Tubuh Manusia, ikuti-satu-aliran); Mode D: explainer berita flat motion-graphics 2D (peristiwa aktual/fakta publik, template newsroom kaku). Dirender dengan Remotion + Three.js; BUKAN footage asli dan BUKAN slideshow gambar AI. Mengunci timeline.json sebagai sumber kebenaran timing dari audio asli, style lock per mode, teks readout overlay DOM anti-kepotong, gerbang internal Mode Tinggal (sesi berjalan sendiri dari bahan sampai final; gerbang persetujuan klasik tersedia), QC mandiri fail-closed, render cepat per-scene, dan penutup kesimpulan/callback (A2 perjalanan bukti: pertanyaan terbuka) untuk membangun audiens."
 ---
 
-# Motion Diorama — Skill Produksi Video Edukasi (v4.2 · edisi publik)
+# Motion Diorama — Skill Produksi Video Edukasi (v4.3 · edisi publik)
 
 > Prinsip inti: **periksa sebelum render, bukan sesudahnya.** Semua yang
 > bisa dicek murah (timeline, still-frame, lebar teks) WAJIB lolos dulu.
