@@ -15,6 +15,10 @@ pertama): tiga aturan ditambah — foto tokoh wajib, latar tidak
 boleh diam, dan lapisan efek suara (SFX) wajib tipis. Pengetatan
 lanjutan di hari yang sama: prioritas dokumentasi peristiwa di
 atas foto resmi/arsip, dan potongan foto formal wajib ter-center.
+Amendemen v4.5 (23 Nov 2026, review user): aturan watermark foto
+berita — foto ber-watermark tampil UTUH sebagai KartuFoto, tidak
+pernah dipotong; kredit "HO" dikenali sebagai rilis lembaga;
+kredit foto pers bukan izin pakai.
 
 ## Pengecualian terkunci (HANYA berlaku di Mode D)
 
@@ -104,7 +108,19 @@ ditandai, tidak ada CTA jualan).
   dan wajib dilabeli "foto arsip <tahun>" di layar. Scene momen
   (FotoBeat) DILARANG memakai foto stok/arsip bila dokumentasi
   peristiwanya tersedia; kartu tokoh mengutamakan crop dari
-  dokumentasi peristiwa sebelum portret studio.
+  dokumentasi peristiwa sebelum portret studio — KECUALI foto
+  ber-watermark, yang tidak boleh di-crop (lihat "Watermark foto
+  berita"); untuk kartu tokoh pakai foto tanpa watermark.
+- **Kredit "HO" & status hak cipta**: kredit kantor berita
+  berpola "<MEDIA>/HO-<LEMBAGA>" (mis. "ANTARA/HO-DPR RI") berarti
+  foto HANDOUT lembaga itu — bila lembaganya instansi negara,
+  statusnya rilis resmi (domain publik, UU 28/2014 Pasal 43 huruf
+  b); tulis kredit persis seperti di sumber. Kartu media yang
+  menyebut sumber resmi (mis. "YouTube Sekretariat Presiden")
+  dilacak ke sumber resminya dulu. Foto karya jurnalis media
+  (Kompas, detik, ANTARA non-HO, dsb.) BERHAK CIPTA — kredit bukan
+  izin; dipakai hanya atas keputusan operator per video, dicatat
+  di laporan beserta risikonya (klaim/takedown).
 - Penempatan baku: foto lingkaran di kartu tokoh/kandidat;
   foto lingkaran kecil di samping atribusi KartuKutipan; FotoBeat
   tetap untuk momen peristiwanya.
@@ -118,6 +134,35 @@ ditandai, tidak ada CTA jualan).
 - Avatar inisial/siluet HANYA cadangan bila foto benar-benar
   tidak ditemukan setelah dicari — dan pemakaiannya WAJIB
   dinyatakan eksplisit di laporan produksi, tidak diam-diam.
+
+### Watermark foto berita (amendemen v4.5)
+
+Foto dari media/kantor berita sering membawa watermark (logo di
+sudut, banner nama media di bawah). Aturannya:
+
+- **Watermark TIDAK BOLEH dipotong, ditutup, diburamkan, di-crop,
+  atau dihapus** — termasuk tidak boleh "terpotong tidak sengaja"
+  oleh object-fit cover, crop lingkaran, atau zoom Ken Burns.
+- Foto ber-watermark tampil sebagai **KartuFoto**: kartu
+  berbingkai putih tipis, gambar `object-fit: contain` (seluruh
+  bidang foto terlihat, termasuk watermark), lebar ±960 px,
+  proporsi asli foto. DILARANG dijadikan FotoBeat full-bleed,
+  foto lingkaran tokoh, atau latar blur — semua itu memotong tepi.
+- Ken Burns untuk KartuFoto dilakukan pada **skala kartu**
+  (mis. 1,00 → 1,05 sepanjang beat), BUKAN zoom di dalam bingkai,
+  sehingga watermark tetap utuh di setiap frame.
+- Elemen lain (kartu jam, label, kartu tokoh, pill, sitasi) tidak
+  boleh menimpa area watermark; atur tata letak di sekitarnya.
+- Kredit foto tetap wajib tampil (kanan atas) walau watermark
+  sudah menyebut medianya — watermark bukan pengganti kredit.
+- Pakai file resolusi terbaik dari halaman artikel (og:image /
+  gambar utama); jangan memakai thumbnail kartu berita yang sudah
+  ditambahi judul/desain, dan jangan screenshot siaran TV.
+- Foto TANPA watermark (rilis resmi, Commons) tetap boleh
+  full-bleed / lingkaran / blur seperti biasa.
+- Laporan akhir mencatat per foto: ada/tidaknya watermark, status
+  hak cipta (rilis resmi/HO, lisensi terbuka, atau berhak cipta +
+  keputusan operator), dan konfirmasi watermark utuh di semua frame.
 
 ## Caption & sitasi (lebih ketat dari inti)
 
@@ -253,3 +298,6 @@ relevan), dan 7 tidak boleh hilang.
   berjalan dan foto selalu ber-Ken Burns.
 - Lapisan SFX hadir mengikuti peta bunyi baku dan tidak menutupi
   narasi (loudness akhir tetap lolos gerbang inti).
+- Watermark foto berita utuh di setiap frame (tidak terpotong
+  oleh crop, lingkaran, blur, zoom, atau elemen lain); foto
+  ber-watermark hanya tampil sebagai KartuFoto; kredit tetap ada.
