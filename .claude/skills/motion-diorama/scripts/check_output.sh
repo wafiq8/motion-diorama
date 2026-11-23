@@ -4,13 +4,14 @@
 set -u
 F="${1:?path file final wajib diisi}"
 # Rentang durasi: argumen [dur_min] [dur_max]; tanpa argumen max, Varian A2
-# terbaca otomatis dari docs/timeline.json di sebelah file final (30–120).
+# dan Mode D (variant "BERITA") terbaca otomatis dari docs/timeline.json di
+# sebelah file final (30–120).
 DMIN="${2:-30}"
 DMAX="${3:-}"
 if [ -z "$DMAX" ]; then
   DMAX=60
   TL="$(dirname "$F")/../docs/timeline.json"
-  if [ -f "$TL" ] && grep -q '"variant"[[:space:]]*:[[:space:]]*"A2"' "$TL"; then DMAX=120; fi
+  if [ -f "$TL" ] && grep -qE '"variant"[[:space:]]*:[[:space:]]*"(A2|BERITA)"' "$TL"; then DMAX=120; fi
 fi
 fail=0
 say() { echo "$1 $2"; [ "$1" = "FAIL" ] && fail=1; return 0; }

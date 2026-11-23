@@ -1,7 +1,7 @@
 # motion-diorama
 
 **Skill Claude Code open-source untuk memproduksi video edukasi
-vertikal 9:16 (30–60 detik; format peta 30–120 detik) bergaya 3D —
+vertikal 9:16 (30–60 detik; format peta & Mode D berita 30–120 detik) bergaya 3D (Mode D: flat 2D) —
 diproduksi dari kode** (Remotion + Three.js). Bukan slideshow
 gambar AI, bukan footage: visual dibangun sebagai scene 3D per
 scene — prosedural secara bawaan, dan khusus format peta memakai

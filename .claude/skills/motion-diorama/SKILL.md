@@ -1,9 +1,9 @@
 ---
 name: motion-diorama
-description: "Produksi video edukasi vertikal 9:16 (30–60 detik; Varian A2: 30–120 detik) bergaya 3D dari kode (prosedural secara bawaan; format peta memakai data geografi asli & model berlisensi terbuka) untuk seri edukasi berbahasa Indonesia, dalam tiga mode aktif — Mode A: diorama 3D semi-realistis (lanskap/sejarah, termasuk varian peta hidup); Mode B: bongkar benda (cara kerja benda/mesin); Mode C: ilustrasi anatomi 3D glossy (Seri Tubuh Manusia, ikuti-satu-aliran). Dirender dengan Remotion + Three.js; BUKAN footage asli dan BUKAN slideshow gambar AI. Mengunci timeline.json sebagai sumber kebenaran timing dari audio asli, style lock per mode, teks readout overlay DOM anti-kepotong, gerbang internal Mode Tinggal (sesi berjalan sendiri dari bahan sampai final; gerbang persetujuan klasik tersedia), QC mandiri fail-closed, render cepat per-scene, dan penutup kesimpulan/callback (A2 perjalanan bukti: pertanyaan terbuka) untuk membangun audiens."
+description: "Produksi video edukasi vertikal 9:16 (30–60 detik; Varian A2 & Mode D: 30–120 detik) bergaya 3D dari kode (Mode D: flat 2D dari kode) (prosedural secara bawaan; format peta memakai data geografi asli & model berlisensi terbuka) untuk seri edukasi berbahasa Indonesia, dalam empat mode aktif — Mode A: diorama 3D semi-realistis (lanskap/sejarah, termasuk varian peta hidup); Mode B: bongkar benda (cara kerja benda/mesin); Mode C: ilustrasi anatomi 3D glossy (Seri Tubuh Manusia, ikuti-satu-aliran); Mode D: explainer berita flat motion-graphics 2D (peristiwa aktual/fakta publik, template newsroom kaku). Dirender dengan Remotion + Three.js; BUKAN footage asli dan BUKAN slideshow gambar AI. Mengunci timeline.json sebagai sumber kebenaran timing dari audio asli, style lock per mode, teks readout overlay DOM anti-kepotong, gerbang internal Mode Tinggal (sesi berjalan sendiri dari bahan sampai final; gerbang persetujuan klasik tersedia), QC mandiri fail-closed, render cepat per-scene, dan penutup kesimpulan/callback (A2 perjalanan bukti: pertanyaan terbuka) untuk membangun audiens."
 ---
 
-# Motion Diorama — Skill Produksi Video Edukasi (v4.0 · edisi publik)
+# Motion Diorama — Skill Produksi Video Edukasi (v4.2 · edisi publik)
 
 > Prinsip inti: **periksa sebelum render, bukan sesudahnya.** Semua yang
 > bisa dicek murah (timeline, still-frame, lebar teks) WAJIB lolos dulu.
@@ -11,25 +11,36 @@ description: "Produksi video edukasi vertikal 9:16 (30–60 detik; Varian A2: 30
 >
 > File ini adalah INTI. Detail visual per mode ada di `references/`
 > — `mode-a.md` untuk Mode A, `mode-b.md` untuk Mode B, `mode-c.md`
-> untuk Mode C (WAJIB dibaca
+> untuk Mode C, `mode-berita.md` untuk Mode D (WAJIB dibaca
 > yang sesuai mode video ini, sebelum membangun scene). Skenario uji
 > ada di `evals/evals.md`. Skrip di `scripts/` dijalankan PERSIS apa
 > adanya — jangan menulis ulang fungsinya.
 
 ## Keputusan terkunci (dari pembuat skill — jangan diubah diam-diam; bila kamu memakai skill ini dan mengubahnya, ubah dengan sadar)
 
-- **Tiga mode aktif: Mode A** (lanskap/sejarah + varian peta hidup),
-  **Mode B** (bongkar benda — cara kerja benda/mesin), dan **Mode C**
-  (anatomi — Seri Tubuh Manusia). Mode dipilih user per
+- **Empat mode aktif: Mode A** (lanskap/sejarah + varian peta hidup),
+  **Mode B** (bongkar benda — cara kerja benda/mesin), **Mode C**
+  (anatomi — Seri Tubuh Manusia), dan **Mode D** (berita — explainer
+  flat motion-graphics 2D untuk peristiwa aktual/fakta publik).
+  Mode D berjalan di atas PENGECUALIAN TERKUNCI terhadap larangan
+  3D inti (scene vektor 2D, foto dokumentasi ber-kredit, gerak
+  animasi elemen, pill label topik wajib) — berlaku HANYA untuk
+  produksi Mode D dan diatur penuh di references/mode-berita.md.
+  Mode dipilih user per
   video lewat prompt mulai; sesi membaca file referensi mode itu
   sebelum Tahap 2.
 - Tujuan: **membangun audiens.** Penutup bawaan = kesimpulan (Mode A)
-  / callback (Mode C) + fade ke hitam. Pengecualian Varian A2 struktur
+  / callback (Mode C) + fade ke hitam. Penutup Mode D = verdict
+  singkat + pertanyaan terbuka spesifik (pola A2 perjalanan bukti).
+  Pengecualian Varian A2 struktur
   perjalanan bukti: penutup = verdict singkat + pertanyaan terbuka
   spesifik (lihat references/mode-a.md). TIDAK ada kartu/label seri di
   dalam video dan TIDAK ada pill tahap/penanda posisi di layar
   (keputusan user 13 Nov 2026, v2.8) — identitas seri hanya hidup di
-  caption. Call to value HANYA sesekali, bila topiknya pas dan user
+  caption. SATU pengecualian terkunci: Mode D memakai pill label
+  TOPIK (nama peristiwa) yang tetap di semua scene — itu label
+  topik format berita, bukan pill tahap dan bukan kartu seri
+  (keputusan user 23 Nov 2026; lihat references/mode-berita.md). Call to value HANYA sesekali, bila topiknya pas dan user
   memintanya untuk video itu — bukan elemen wajib. CTA jualan dilarang.
 - Angka/data = **HYBRID**: readout layar (overlay DOM) adalah sistem
   utama untuk SEMUA angka. Pengecualian: maksimal SATU angka hero 3D
@@ -37,7 +48,7 @@ description: "Produksi video edukasi vertikal 9:16 (30–60 detik; Varian A2: 30
   dan angka yang sama WAJIB tetap tampil sebagai readout/caption,
   karena versi 3D adalah penekanan visual, bukan pembawa informasi.
 - Durasi final **30–60 detik**, mengikuti audio. Pengecualian
-  Varian A2 (format peta): **30–120 detik**.
+  Varian A2 (format peta) dan Mode D (berita): **30–120 detik**.
 - Suara: skill ini AGNOSTIK suara — pakai MP3 narasi apa pun yang
   disediakan user di `public/narasi.mp3`.
 - Musik: file dari user di `public/musik.*` — jangan memilihkan musik.
@@ -66,7 +77,7 @@ description: "Produksi video edukasi vertikal 9:16 (30–60 detik; Varian A2: 30
   dilarang bertanya di tengah jalan. Sesi hanya boleh berhenti di
   tengah untuk PENGHAMBAT KERAS: (a) bahan tidak ada atau rusak,
   (b) transkrip mustahil dibuat, (c) narasi tetap di luar rentang
-  formatnya (30–60 detik; A2: 30–120 detik) setelah atempo maks. Bila prompt menyatakan "Mode Tinggal:
+  formatnya (30–60 detik; A2 & Mode D: 30–120 detik) setelah atempo maks. Bila prompt menyatakan "Mode Tinggal:
   TIDAK", berlaku gerbang klasik — dua persetujuan user (sesudah
   Tahap 1 dan sesudah Tahap 3) dengan tangga pelonggaran Gerbang 2
   berbasis bukti: 3 lolos bersih berturut-turut → 1 still per scene;
@@ -79,10 +90,15 @@ description: "Produksi video edukasi vertikal 9:16 (30–60 detik; Varian A2: 30
 - Dilarang gambar AI/foto/2D/sprite sebagai scene. Model unduhan dan
   tekstur/data luar HANYA boleh dipakai mengikuti bagian "Aset unduhan
   & data luar"; di luar itu semua visual = geometri 3D prosedural
-  Three.js.
+  Three.js. PENGECUALIAN Mode D: ilustrasi vektor 2D dari kode dan
+  foto dokumentasi asli ber-kredit ADALAH sistem visualnya (lihat
+  references/mode-berita.md); gambar generate AI tetap dilarang di
+  semua mode, termasuk Mode D.
 - Dilarang letterbox; kamera native 9:16.
 - Gerakan hanya dari kamera di ruang 3D (parallax nyata). Dilarang
-  mensimulasikan gerak via zoom/pan gambar 2D.
+  mensimulasikan gerak via zoom/pan gambar 2D. (Mode D: gerak =
+  animasi elemen 2D yang diturunkan dari useCurrentFrame — lihat
+  references/mode-berita.md.)
 - Figur manusia = "siluet plus": berproporsi manusia dan bersendi
   (lengan, kaki, kepala bergerak dari timeline), dasar gelap netral,
   boleh satu warna peran muted (pakaian/topi/properti khas — kamera,
@@ -189,7 +205,9 @@ WAJIB tampil di layar:
 
    Field `"variant": "A2"` WAJIB diisi untuk produksi Varian A2 —
    validator membaca field ini untuk batas durasi 30–120 detik;
-   tanpa field itu batas 30–60 detik berlaku.
+   tanpa field itu batas 30–60 detik berlaku. Field
+   `"variant": "BERITA"` WAJIB diisi untuk produksi Mode D, dengan
+   efek rentang yang sama (30–120 detik).
 
 4. Aturan pemetaan: batas scene = detik MULAI kalimat pertama scene
    berikutnya; pemetaan berdasarkan ISI kalimat — dilarang mengelompokkan
@@ -202,7 +220,7 @@ WAJIB tampil di layar:
    Mode Tinggal: jangan berhenti; simpan ringkasan untuk laporan
    akhir. Mode gerbang klasik: tampilkan ke user dan TUNGGU persetujuan.
 7. `total_duration_s` harus masuk rentang formatnya (30–60 detik;
-   Varian A2: 30–120 detik). Di luar itu: Mode Tinggal —
+   Varian A2 & Mode D: 30–120 detik). Di luar itu: Mode Tinggal —
    terapkan kebijakan prompt (atempo maks. 1,25× untuk kepanjangan;
    regangkan jeda penutup untuk kependekan) dan catat di laporan;
    bila tetap di luar rentang, itu PENGHAMBAT KERAS: berhenti dan
@@ -288,6 +306,28 @@ WAJIB tampil di layar:
   memantulkan hook; fade ke hitam; tanpa kartu/label seri (v2.8).
   Dilarang gore/realisme medis grafis.
 
+### Mode D — Berita (detail di references/mode-berita.md)
+
+- BUKAN 3D: explainer flat motion-graphics 2D (DOM/SVG dari kode)
+  di atas latar navy gelap yang sama di semua scene; palet terkunci
+  "berita-navy" (putih + aksen utama oranye-merah + aksen sekunder
+  teal); template kaku ala newsroom — yang berganti hanya isi.
+- Pill label TOPIK tetap di atas tengah di semua scene (pengecualian
+  terkunci v2.8, khusus mode ini). Tipografi sans bold; headline
+  putih dengan maksimal SATU kata beraksen.
+- Tipe scene baku: KartuHook (tanggal/fakta raksasa + ikon + tanda
+  vonis), FotoBeat (foto dokumentasi ber-kredit full-bleed),
+  PetaLokator (peta ilustrasi berlabel tidak-berskala), CounterIkon
+  (ikon + angka count-up), ScenePenjelasan (diagram datar satu
+  gagasan), KartuKutipan (kutipan asli + atribusi), PenutupDampak.
+- Caption karaoke SATU kata dengan kotak aksen pada kata aktif;
+  baris sitasi sumber WAJIB di setiap scene; dugaan belum terbukti
+  berlabel BELUM TERBUKTI dan versi resmi wajib disebut.
+- Struktur: hook dua langkah (dua fakta berdampingan → pertanyaan)
+  → kronologi/lokasi → skala dampak → penyebab → kutipan pihak
+  terkait → versi resmi → penutup verdict + pertanyaan terbuka.
+  Hook boleh tajam; badan video wajib faktual dan dingin.
+
 ## Aturan teks (anti-kepotong — penyebab revisi nomor satu)
 
 - SEMUA teks wajib-baca adalah overlay DOM (komponen Remotion), BUKAN
@@ -331,8 +371,8 @@ WAJIB tampil di layar:
 - **Tahap 1 — Timeline:** sesuai bagian Timing → validator PASS →
   Gerbang 1 (internal di Mode Tinggal; persetujuan user di mode klasik).
 - **Tahap 2 — Bangun scene** membaca timeline.json dan file referensi
-  mode video ini (references/mode-a.md, references/mode-b.md, atau
-  references/mode-c.md).
+  mode video ini (references/mode-a.md, references/mode-b.md,
+  references/mode-c.md, atau references/mode-berita.md).
 - **Tahap 3 — Gerbang still:** render 3 still per scene (awal/tengah/
   akhir scene) + contact sheet. Setiap panel contact sheet WAJIB
   digambari garis panduan area aman (hanya di sheet — tidak pernah
@@ -353,8 +393,8 @@ WAJIB tampil di layar:
   final`).
 - **Tahap 5 — Final:** render full-res SEKALI; jalankan
   `bash scripts/check_output.sh out/<slug>-final.mp4`
-  (Varian A2: rentang 30–120 terbaca otomatis dari timeline.json,
-  atau beri argumen `30 120`); lalu buat
+  (Varian A2 & Mode D: rentang 30–120 terbaca otomatis dari
+  timeline.json, atau beri argumen `30 120`); lalu buat
   subtitle portabel dari timeline yang sama:
   `python3 scripts/buat_srt.py docs/timeline.json out/subtitel.srt`
   (satu cue per kalimat, teks naskah resmi — untuk YouTube/Shorts dan
@@ -389,7 +429,7 @@ WAJIB tampil di layar:
 
 1. `validate_timeline.py` PASS dan file final ter-probe: resolusi/fps
    cocok dengan `proyek.config.json` (bawaan 1080×1920, 30 fps),
-   durasi masuk rentang format (30–60; A2: 30–120), audio ada
+   durasi masuk rentang format (30–60; A2 & Mode D: 30–120), audio ada
    sampai mendekati akhir; dan tidak
    ada `Math.random`/`Date.now` tersisa di `src/` — semua keacakan
    berasal dari `seed` config.
@@ -417,11 +457,17 @@ WAJIB tampil di layar:
    Mode C:
    organ hero utuh terbaca dan kode warna aliran tidak terbalik
    (cek khusus Mode C di references/mode-c.md WAJIB ikut diperiksa).
+   Mode D:
+   cek khusus Mode D di references/mode-berita.md WAJIB ikut
+   diperiksa (pill topik, sitasi per scene, karaoke satu kata,
+   label peta, kredit foto, palet).
 10. Penutup memuat kesimpulan (Mode A), kesimpulan/prinsip (Mode B),
-    atau callback (Mode C) — khusus A2 perjalanan bukti: verdict +
-    pertanyaan terbuka spesifik; fade
+    atau callback (Mode C) — khusus A2 perjalanan bukti dan Mode D:
+    verdict + pertanyaan terbuka spesifik; fade
     ke hitam bersih; TIDAK ada kartu/label seri, pill tahap, atau
-    penanda posisi di frame mana pun (v2.8).
+    penanda posisi di frame mana pun (v2.8) — pengecualian Mode D:
+    pill label TOPIK wajib hadir dan konsisten (lihat
+    references/mode-berita.md).
     (CTV hadir hanya bila diminta untuk video ini.)
 
 ## Output dan laporan
